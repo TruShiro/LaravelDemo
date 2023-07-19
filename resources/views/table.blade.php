@@ -7,7 +7,7 @@
     </br>
     <h3>Data showing</h3>
     <br>
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="text-align: center;">
             <thead>
                 <tr>
                     <td>Name</td>
@@ -26,7 +26,7 @@
                     <td>{{$Record->Description}}</td>
                     <td>{{$Record->Project}}</td>
                     <!-- Getting img from local by searching Image name-->
-                    <td align="center"><img src="{{ asset('images/') }}/{{$Record->Image}}"  alt="img" width="75" height="75"></td>
+                    <td><img src="{{ asset('images/') }}/{{$Record->Image}}"  alt="img" width="75" height="75"></td>
                     <!--Changing Record_Date format-->
                     <td>{{ \Carbon\Carbon::parse($Record->Record_Date)->format('Y-m-d')}}</td>
                     <!--Edit and delete-->
