@@ -26,6 +26,13 @@
         </div><!--/form-group-->
         <div class="row">
            <div class="col-sm-12">
+             <label for="Group">Group</label>
+             <input id="Group" class="form-control input-group-lg border border-dark" type="text" name="Group" placeholder="Group" value="{{$Record->Group}}">
+             <div id="uidHelp" class="form-text">*Test for php artisan make:migration add_group_to_records_table</div>
+           </div>
+        </div><!--/form-group-->
+        <div class="row">
+           <div class="col-sm-12">
              <label for="Project">Project (Current Project: {{$Record->Project}})</label>
              <select class="form-control input-group-lg border border-dark" id="Project" name="Project" required>
              <option disabled>---Current Project---</option>

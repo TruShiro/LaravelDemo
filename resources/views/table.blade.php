@@ -11,7 +11,8 @@
             <thead>
                 <tr>
                     <td>Name</td>
-                    <td>Description</td>
+                    <td>Description</td> 
+                    <td>Group</td>
                     <td>Project</td>
                     <td>Image</td>
                     <td>Date</td>
@@ -24,6 +25,7 @@
                 <tr>
                     <td>{{$Record->Name}}</td>
                     <td>{{$Record->Description}}</td>
+                    <td>{{$Record->Group}}</td>
                     <td>{{$Record->Project}}</td>
                     <!-- Getting img from local by searching Image name-->
                     <td><img src="{{ asset('images/') }}/{{$Record->Image}}"  alt="img" width="75" height="75"></td>

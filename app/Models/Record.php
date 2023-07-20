@@ -11,6 +11,7 @@ class Record extends Model
     protected $fillable = [
         'Name',
         'Description',
+        'Group',
         'Project',
         'Record_Date',
         'Image'

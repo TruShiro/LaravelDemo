@@ -37,23 +37,27 @@ class RecordController extends Controller
         $Name=$request->input('Name');
         $Description=$request->input('Description');
         $Project=$request->input('Project');
+        $Group=$request->input('Group');
         
         //Date input which changed format
         $Record_Date=$request->input('Record_Date');
         $Date = date("Y-m-d", strtotime($Record_Date));//Change date input from Y/m/d to Y-m-d
 
         //Image input but imagename save in database
+        if($request->file('Image')!=null){//if user upload something
         $Image=$request->file('Image');
         $Image->move('images',$Image->getClientOriginalName()); //Image has been saved to images. images is in public -> images                 
         $ImageName=$Image->getClientOriginalName(); //Database save Image's name
+        }
 
         //Create data and save into database
         $Record = Record::create([
             'Name'=>$Name,
-            'Description'=>$Description,
+            'Description'=>$Description??null,
+            'Group'=>$Group,
             'Project'=>$Project,
             'Record_Date'=>$Date,
-            'Image'=>$ImageName
+            'Image'=>$ImageName??null
         ]);
 
         //Return to Home page
@@ -91,7 +95,7 @@ class RecordController extends Controller
         $Record=Record::find($request->id);
 
         //Image edit
-        if($request->file('Image')!=''){//if user upload something
+        if($request->file('Image')!=null){//if user upload something
             $image=$request->file('Image');        
             $image->move('images',$image->getClientOriginalName()); //Image has been saved to images. images is in public -> images       
             $imageName=$image->getClientOriginalName(); 
@@ -107,6 +111,7 @@ class RecordController extends Controller
         $Record->Name=$request->input('Name');
         $Record->Description=$request->input('Description');
         $Record->Project=$request->input('Project');
+        $Record->Group=$request->input('Group');
 
         //Save the changes made by user
         $Record->save();
