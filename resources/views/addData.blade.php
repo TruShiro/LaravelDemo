@@ -36,7 +36,7 @@
              <option disabled>---Select the project---</option>
              <option value="No Project" id="Project" class="form-control">No Project</option>
              @foreach($Projects as $Project)
-             <option value="{{$Project->projcode}}" id="Project" class="form-control">{{$Project->projcode}}</option>
+             <option value="{{$Project->projcode}}" id="Project" class="form-control">{{$Project->projcode}}-{{$Project->projdesc}}</option>
              @endforeach
             </select>
             <div id="uidHelp" class="form-text">*Selection Input</div>
